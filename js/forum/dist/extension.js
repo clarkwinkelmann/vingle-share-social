@@ -117,11 +117,6 @@ System.register('vingle/share/social/main', ['flarum/extend', 'flarum/app', 'fla
 
             app.initializers.add('vingle-share-social', function () {
                 extend(DiscussionPage.prototype, 'sidebarItems', function (items) {
-                    if (app.current.discussion.startPost()) {
-                        var post = app.current.discussion.startPost();
-                        var description = truncate(getPlainContent(post.contentHtml()), 150, 0);
-                        $('meta[name=description]').attr('content', description.toLowerCase());
-                    }
                     items.add('share-social', Button.component({
                         className: 'Button Button-icon Button--share',
                         icon: 'share-alt',
